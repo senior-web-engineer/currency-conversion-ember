@@ -1,0 +1,76 @@
+
+<!-- Currency Converter  -->
+    <h1 class="heading text-center display-2">
+        Currency Conversion</h1>
+  
+    <hr>
+    <div class="container">
+  
+        <div class="main">
+  
+            <div class="form-group">
+                <label for="oamount">
+                    Amount to Convert : 
+                </label>
+                <input type="number" 
+                       class="form-control searchBox"  
+                       placeholder="0.00" onchange={{action "change" value="target.value"}}
+                       id="oamount" >
+            </div>
+  
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">From</span>
+                        </div>
+                        <select class="form-control from" id="sel1" onchange={{action "setSelectionFrom" value="target.value"}}>
+                            <option value="">Select One …</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>                            
+                            <option value="RUB">RUB</option>                            
+                        </select>
+                    </div>
+                </div>
+  
+                <div class="col-sm-6">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">To</span>
+                        </div>
+                        <select class="form-control to" id="sel2" onchange={{action "setSelectionTo" value="target.value"}}>
+                            <option value="">Select One …</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>                            
+                            <option value="RUB">RUB</option>  
+                        </select>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="text-center">
+  
+                <!-- convert button -->
+                <button class="btn btn-primary convert m-2" type="button" onclick={{action "convert"}} >Convert</button>
+                
+  
+                <!-- reset button -->
+                <button class="btn btn-primary m-2" 
+                        onclick={{action "resetVal"}} type="button">
+                   Reset
+              </button>
+            </div>
+  
+        </div>
+  
+        <div id="finalAmount" class="text-center">
+  
+            <!-- Display the converted amount -->
+            <h2>Converted Amount :
+                <span class="finalValue" 
+                      style="color:green;">
+           </span>
+            </h2>
+        </div>
+    </div>
+{{yield}}
